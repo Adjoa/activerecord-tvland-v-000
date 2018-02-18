@@ -5,4 +5,10 @@ class Actor < ActiveRecord::Base
   def full_name
     [self.first_name, self.last_name].join(' ')
   end
+
+  def list_roles
+    self.characters.each do |character|
+      [character.name, character.show].join(' - ')
+    end 
+  end
 end
